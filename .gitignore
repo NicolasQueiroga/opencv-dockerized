@@ -1,3 +1,3 @@
-build/*
-bin/*
+code/build/*
+code/bin/*
 vscode/

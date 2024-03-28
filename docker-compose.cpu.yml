@@ -1,0 +1,17 @@
+services:
+  opencv:
+    container_name: opencv
+    build:
+      context: .
+      dockerfile: Dockerfile.cpu
+    command: /bin/sh
+    privileged: true
+    volumes:
+      - ./code:/home/code
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    devices:
+      - /dev/video0:/dev/video0
+    environment:
+      - DISPLAY=$DISPLAY
+    ports:
+      - 8888:8888

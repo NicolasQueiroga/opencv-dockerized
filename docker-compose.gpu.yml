@@ -3,14 +3,13 @@ version: '3'
 services:
   opencv:
     container_name: opencv
-    build: 
-      context: .
-      shm_size: '8gb'
+    build:
+      context: Dockerfile.gpu
     shm_size: '8gb'
     network_mode: 'host'
     privileged: true
     volumes:
-      - ./code:/code
+      - ./code:/home/code
       - /tmp/.X11-unix:/tmp/.X11-unix
     devices:
       - /dev/video0:/dev/video0
@@ -24,4 +23,4 @@ services:
           devices:
             - driver: nvidia
               count: 1
-              capabilities: [gpu]
+              capabilities: [ gpu ]

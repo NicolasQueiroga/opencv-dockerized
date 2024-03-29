@@ -22,8 +22,9 @@ RUN apk update && \
     jpeg-dev \
     openexr-dev \
     tiff-dev \
-    libwebp-dev && \
-    git clone https://github.com/opencv/opencv.git /opencv && \
+    libwebp-dev
+
+RUN git clone https://github.com/opencv/opencv.git /opencv && \
     git clone https://github.com/opencv/opencv_contrib.git /opencv_contrib && \
     cd /opencv && mkdir build && cd build && \
     cmake \
@@ -39,5 +40,4 @@ RUN apk update && \
     .. && \
     make -j$(nproc) && make install && \
     cd / && rm -rf /opencv && rm -rf /opencv_contrib && \
-    apk del git cmake g++ python3-dev ffmpeg-dev gstreamer-dev gst-plugins-base-dev gtk+3.0-dev && \
     rm -rf /var/cache/apk/*

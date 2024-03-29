@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   opencv:
     container_name: opencv

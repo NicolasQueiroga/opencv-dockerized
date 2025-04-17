@@ -27,11 +27,11 @@ RUN git clone https://github.com/opencv/opencv.git ~/opencv && \
     -D WITH_TBB=ON \
     -D OPENCV_DNN_CUDA=ON \
     -D OPENCV_ENABLE_NONFREE=ON \
-    -D CUDA_ARCH_BIN=7.5 \
+    -D CUDA_ARCH_BIN=8.6 \
     -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib/modules \
     -D BUILD_EXAMPLES=OFF \
     .. && \
-    make -j$(nproc) && make install && \
+    make -j$(nproc) && sudo make install && \
     cd / && rm -rf ~/opencv && rm -rf ~/opencv_contrib
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* && \
